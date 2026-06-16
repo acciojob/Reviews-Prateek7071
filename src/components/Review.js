@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Review(props) {
   const { id, job, image } = props.review
-  const author = author
-  const info = info
+  const author = props.author
+  const info = props.info
   return (
     <div>
         <h1 id={`${author}-${id}`}>name: {author}</h1>

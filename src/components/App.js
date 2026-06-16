@@ -63,15 +63,14 @@ export default function App() {
       <div className="review">
         {
           reviews.filter(e=>e.id===currentReview).map((review) => (
-            <div key={review.id} author={ review.name} info={review.text}>
+            <div key={review.id} >
             <Review
               review ={review}
+              author={ review.name} info={review.text}
               />
-              <div>
-                <button id="prev-btn" onClick={(e)=>prevReview(review.id)}>previous</button>
-                <button id="random-btn" onClick={randomReview}>surprise me</button>
-                <button id="next-btn" onClick={(e)=>nextReview(review.id)}>next</button>
-              </div>
+            <button id="prev-btn" onClick={(e)=>prevReview(review.id)}>previous</button>
+            <button id="random-btn" onClick={randomReview}>surprise me</button>
+            <button id="next-btn" onClick={(e)=>nextReview(review.id)}>next</button>
           </div>
           ))
         }
