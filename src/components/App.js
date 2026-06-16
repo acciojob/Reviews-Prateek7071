@@ -63,7 +63,7 @@ export default function App() {
       <div className="review">
         {
           reviews.filter(e=>e.id===currentReview).map((review) => (
-          <div key={review.id}>
+            <div key={review.id} author={ review.name} info={review.text}>
             <Review
               review ={review}
               />
