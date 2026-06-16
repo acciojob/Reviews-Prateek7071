@@ -43,7 +43,7 @@ export default function App() {
   const [currentReview, setCurrentReview] = useState(1);
 
   function randomReview() {
-    const random = Math.floor((Math.random) * 4) + 1;
+    const random = Math.floor((Math.random()) * 4) + 1;
     setCurrentReview(random)
   }
 
@@ -53,24 +53,30 @@ export default function App() {
   }
 
   function prevReview(id) {
-    let review = ((((id - 1) % 4) + 4) % 4) 
-    if (review === 0) {
-      review = 4
-    }
-    setCurrentReview(review)
+    let review = ((((id - 2) % 4) + 4) % 4) + 1; // returns 1-4 for any negative number
+    setCurrentReview(review);
   }
-   // useEffect? 
+  
   return (
     <div>
       <h1 id="review-heading">Our Reviews</h1>
       <div className="review">
-        <Review/>
+        {
+          reviews.filter(e=>e.id===currentReview).map((review) => (
+          <div key={review.id}>
+            <Review
+              review ={review}
+              />
+              <div>
+                <button id="prev-btn" onClick={(e)=>prevReview(review.id)}>previous</button>
+                <button id="random-btn" onClick={randomReview}>surprise me</button>
+                <button id="next-btn" onClick={(e)=>nextReview(review.id)}>next</button>
+              </div>
+          </div>
+          ))
+        }
       </div>
-      <div>
-        <button id="prev-btn" onClick={()=>prevReview(id)}>previous</button>
-        <button id="random-btn" onClick={randomReview}>surprise me</button>
-        <button id="next-btn" onClick={()=>nextReview(id)}>next</button>
-      </div>
+
     </div>
   );
 }
