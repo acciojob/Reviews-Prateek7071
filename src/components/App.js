@@ -68,9 +68,9 @@ export default function App() {
               review ={review}
               author={ review.name} info={review.text}
               />
-            <button id="prev-btn" onClick={(e)=>prevReview(review.id)}>previous</button>
-            <button id="random-btn" onClick={randomReview}>surprise me</button>
-            <button id="next-btn" onClick={(e)=>nextReview(review.id)}>next</button>
+            <button className="prev-btn" onClick={(e)=>prevReview(review.id)}>previous</button>
+            <button className="random-btn" onClick={randomReview}>surprise me</button>
+            <button className="next-btn" onClick={(e)=>nextReview(review.id)}>next</button>
           </div>
           ))
         }
